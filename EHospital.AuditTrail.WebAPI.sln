@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EHospital.AuditTrail.WebAPI", "EHospital.AuditTrail.WebAPI\EHospital.AuditTrail.WebAPI.csproj", "{AEB65C57-E180-48E5-B141-D1A5EDBFA4D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EHospital.AuditTrail.BusinessLogic", "EHospital.AuditTrail.BusinessLogic\EHospital.AuditTrail.BusinessLogic.csproj", "{E71E1B61-3097-4B5D-B9A7-211485513CB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EHospital.AuditTrail.Model", "EHospital.AuditTrail.Model\EHospital.AuditTrail.Model.csproj", "{1D6C30D9-C3DB-4235-824C-522E4985FCB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EHospital.AuditTrail.Data", "EHospital.AuditTrail.Data\EHospital.AuditTrail.Data.csproj", "{E182F8D0-8852-4A8A-8832-9454E5FF0E4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EHospital.AuditTrail.Tests", "EHospital.AuditTrail.Tests\EHospital.AuditTrail.Tests.csproj", "{37E23E67-567C-4E73-A812-2E6C7F56D191}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEB65C57-E180-48E5-B141-D1A5EDBFA4D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEB65C57-E180-48E5-B141-D1A5EDBFA4D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEB65C57-E180-48E5-B141-D1A5EDBFA4D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEB65C57-E180-48E5-B141-D1A5EDBFA4D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E71E1B61-3097-4B5D-B9A7-211485513CB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E71E1B61-3097-4B5D-B9A7-211485513CB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E71E1B61-3097-4B5D-B9A7-211485513CB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E71E1B61-3097-4B5D-B9A7-211485513CB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D6C30D9-C3DB-4235-824C-522E4985FCB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D6C30D9-C3DB-4235-824C-522E4985FCB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D6C30D9-C3DB-4235-824C-522E4985FCB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D6C30D9-C3DB-4235-824C-522E4985FCB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E182F8D0-8852-4A8A-8832-9454E5FF0E4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E182F8D0-8852-4A8A-8832-9454E5FF0E4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E182F8D0-8852-4A8A-8832-9454E5FF0E4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E182F8D0-8852-4A8A-8832-9454E5FF0E4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37E23E67-567C-4E73-A812-2E6C7F56D191}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37E23E67-567C-4E73-A812-2E6C7F56D191}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37E23E67-567C-4E73-A812-2E6C7F56D191}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37E23E67-567C-4E73-A812-2E6C7F56D191}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1DE2A6C2-BC4B-4AEE-8D61-13F92CBFCF71}
+	EndGlobalSection
+EndGlobal
