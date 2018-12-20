@@ -11,11 +11,18 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
+using EHospital.AuditTrail.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace EHospital.AuditTrail.WebAPI
 {
     public class Startup
     {
+        /// <summary>
+        /// The connection string name defined in application settings.
+        /// </summary>
+        private const string CONNECTION_STRING_NAME = "EHospitalDB";
+
         ///* Swagger setting
         private const string VERSION = "v.1.0.0";
         private const string API_NAME = "EHospital.AuditTrail";
@@ -31,6 +38,9 @@ namespace EHospital.AuditTrail.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connection = this.Configuration.GetConnectionString(CONNECTION_STRING_NAME);
+            // TODO: Set DbContext dependency injection
+            services.AddDbContext<AuditTrailContext>(options => options.UseSqlServer(connection));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             ///* Swagger Setting
             Info info = new Info

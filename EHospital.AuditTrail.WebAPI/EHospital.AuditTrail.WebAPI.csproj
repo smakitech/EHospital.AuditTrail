@@ -20,4 +20,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EHospital.AuditTrail.Data\EHospital.AuditTrail.Data.csproj" />
+  </ItemGroup>
+
 </Project>
