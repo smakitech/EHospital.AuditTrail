@@ -1,5 +1,6 @@
 ﻿namespace EHospital.AuditTrail.Model
 {
+    /// TODO: How client service will know about such <code>enum</code> to use.
     /// <summary>
     /// Constants set which specify action type for <see cref="ActionsLog"/> model.
     /// </summary>

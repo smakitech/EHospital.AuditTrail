@@ -1,17 +1,20 @@
-﻿using Microsoft.EntityFrameworkCore;
-using EHospital.AuditTrail.Model;
+﻿using System;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using EHospital.AuditTrail.Model;
 
 namespace EHospital.AuditTrail.Data
 {
     /// <summary>
     /// AuditTrail DataProvider interface.
     /// </summary>
-    public interface IAuditTrailDataProvider
+    public interface IActionLogDataProvider
     {
         /// <summary>
-        /// Gets or sets the actions log records.
-        /// Represents set of actions log records which store in the database.
+        /// Gets or sets the records of ActionsLog table.
+        /// Represents set of records which store in the database.
         /// Helps to interact with ActionsLog table placed in the database.
         /// </summary>
         DbSet<ActionLog> ActionsLog { get; set; }

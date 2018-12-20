@@ -13,8 +13,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\" />
     <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EHospital.AuditTrail.Data\EHospital.AuditTrail.Data.csproj" />
+    <ProjectReference Include="..\EHospital.AuditTrail.Model\EHospital.AuditTrail.Model.csproj" />
   </ItemGroup>
 
 </Project>

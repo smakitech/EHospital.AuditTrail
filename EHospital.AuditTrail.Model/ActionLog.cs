@@ -5,12 +5,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace EHospital.AuditTrail.Model
 {
     /// <summary>
-    /// Represents model of EHospital database table ActionsLog
-    /// stored information about actions on database entities.
+    /// Represents model which maps on EHospital database table ActionsLog.
+    /// Stores information about operations performed on database entities.
     /// </summary>
     public class ActionLog
     {
-        /// <summary>Gets or sets the identifier.</summary>
+        /// <summary>Gets or sets the record identifier.</summary>
         [Key]
         public long Id { get; set; }
 
@@ -30,7 +30,7 @@ namespace EHospital.AuditTrail.Model
         [Required]
         public string Module { get; set; }
 
-        /// <summary>Gets or sets the type of the action.</summary>
+        /// <summary>Gets or sets the type of the action (operation).</summary>
         [Required]
         public ActionMode ActionType { get; set; }
 

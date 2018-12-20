@@ -1,6 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using EHospital.AuditTrail.Model;
 using System.Threading.Tasks;
+using System;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace EHospital.AuditTrail.Data
 {
@@ -9,7 +12,7 @@ namespace EHospital.AuditTrail.Data
     /// Provide access to audit trail tables and data.
     /// </summary>
     /// <seealso cref="DbContext"/>
-    public class AuditTrailContext : DbContext, IAuditTrailDataProvider
+    public class AuditTrailContext : DbContext, IActionLogDataProvider
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AuditTrailContext"/> class.
@@ -28,8 +31,8 @@ namespace EHospital.AuditTrail.Data
         }
 
         /// <summary>
-        /// Gets or sets the actions log records.
-        /// Represents set of actions log records which store in the database.
+        /// Gets or sets the records of ActionsLog table.
+        /// Represents set of records which store in the database.
         /// Helps to interact with ActionsLog table placed in the database.
         /// </summary>
         public DbSet<ActionLog> ActionsLog { get; set; }
