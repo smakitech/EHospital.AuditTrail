@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Linq;
 using EHospital.AuditTrail.BusinessLogic.Contracts;
 using EHospital.AuditTrail.Data;
@@ -36,13 +37,24 @@ namespace EHospital.AuditTrail.BusinessLogic.Services
         /// by name and identifier of ActionItem
         /// in asynchronous mode.
         /// </summary>
-        /// <param name="id">The item identifier.</param>
         /// <param name="entityName">The entity name</param>
+        /// <param name="id">The item identifier.</param>
         /// <returns>Set of records by specified item id.</returns>
         public async Task<IQueryable<ActionLog>> GetItemId(string entityName, int id)
         {
-            return await Task.Run(() => this.provider.ActionsLog
+            var result = await Task.Run(() => this.provider.ActionsLog
                 .Where(a => a.ActionItem == entityName && a.ItemId == id));
+            foreach (var entity in result)
+            {
+                if (entity.ItemState != null)
+                {
+                    XmlDocument document = new XmlDocument();
+                    document.LoadXml(entity.ItemState);
+                    entity.ItemState = JsonConvert.SerializeObject(document);
+                }
+            }
+
+            return result;
         }
 
         /// <summary>
