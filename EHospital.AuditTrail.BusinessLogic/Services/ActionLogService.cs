@@ -31,12 +31,27 @@ namespace EHospital.AuditTrail.BusinessLogic.Services
             this.provider = provider;
         }
 
-        public async Task<IQueryable<ActionLog>> GetItemId(int id)
+        /// <summary>
+        /// Gets the records from database table ActionsLog
+        /// by name and identifier of ActionItem
+        /// in asynchronous mode.
+        /// </summary>
+        /// <param name="id">The item identifier.</param>
+        /// <param name="entityName">The entity name</param>
+        /// <returns>Set of records by specified item id.</returns>
+        public async Task<IQueryable<ActionLog>> GetItemId(string entityName, int id)
         {
             return await Task.Run(() => this.provider.ActionsLog
-                .Where(a => a.ItemId == id));
+                .Where(a => a.ActionItem == entityName && a.ItemId == id));
         }
 
+        /// <summary>
+        /// Gets the records from database table ActionsLog
+        /// by identifier of ActionItem
+        /// in asynchronous mode.
+        /// </summary>
+        /// <param name="id">The item identifier.</param>
+        /// <returns>Set of records by specified item id.</returns>
         public async Task<ActionLog> InsertRecord(ActionLog item)
         {
             // Get state of action item in JSON format.
@@ -55,7 +70,7 @@ namespace EHospital.AuditTrail.BusinessLogic.Services
                 }
 
                 XDocument document = JsonConvert
-                    .DeserializeXNode(item.ItemState, nameof(item.ActionItem));
+                    .DeserializeXNode(item.ItemState, item.ActionItem);
                 item.ItemState = document.ToString();
             }
 

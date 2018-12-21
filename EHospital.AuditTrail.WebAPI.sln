@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EHospital.AuditTrail.WebAPI", "EHospital.AuditTrail.WebAPI\EHospital.AuditTrail.WebAPI.csproj", "{AEB65C57-E180-48E5-B141-D1A5EDBFA4D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EHospital.AuditTrail.WebAPI", "EHospital.AuditTrail.WebAPI\EHospital.AuditTrail.WebAPI.csproj", "{AEB65C57-E180-48E5-B141-D1A5EDBFA4D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EHospital.AuditTrail.BusinessLogic", "EHospital.AuditTrail.BusinessLogic\EHospital.AuditTrail.BusinessLogic.csproj", "{E71E1B61-3097-4B5D-B9A7-211485513CB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EHospital.AuditTrail.BusinessLogic", "EHospital.AuditTrail.BusinessLogic\EHospital.AuditTrail.BusinessLogic.csproj", "{E71E1B61-3097-4B5D-B9A7-211485513CB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EHospital.AuditTrail.Model", "EHospital.AuditTrail.Model\EHospital.AuditTrail.Model.csproj", "{1D6C30D9-C3DB-4235-824C-522E4985FCB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EHospital.AuditTrail.Model", "EHospital.AuditTrail.Model\EHospital.AuditTrail.Model.csproj", "{1D6C30D9-C3DB-4235-824C-522E4985FCB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EHospital.AuditTrail.Data", "EHospital.AuditTrail.Data\EHospital.AuditTrail.Data.csproj", "{E182F8D0-8852-4A8A-8832-9454E5FF0E4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EHospital.AuditTrail.Data", "EHospital.AuditTrail.Data\EHospital.AuditTrail.Data.csproj", "{E182F8D0-8852-4A8A-8832-9454E5FF0E4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EHospital.AuditTrail.Tests", "EHospital.AuditTrail.Tests\EHospital.AuditTrail.Tests.csproj", "{37E23E67-567C-4E73-A812-2E6C7F56D191}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EHospital.AuditTrail.Tests", "EHospital.AuditTrail.Tests\EHospital.AuditTrail.Tests.csproj", "{37E23E67-567C-4E73-A812-2E6C7F56D191}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

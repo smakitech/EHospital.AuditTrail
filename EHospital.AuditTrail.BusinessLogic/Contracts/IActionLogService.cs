@@ -21,11 +21,12 @@ namespace EHospital.AuditTrail.BusinessLogic.Contracts
 
         /// <summary>
         /// Gets the records from database table ActionsLog
-        /// by identifier of ActionItem
+        /// by name and identifier of ActionItem
         /// in asynchronous mode.
         /// </summary>
         /// <param name="id">The item identifier.</param>
+        /// <param name="entityName">The entity name</param>
         /// <returns>Set of records by specified item id.</returns>
-        Task<IQueryable<ActionLog>> GetItemId(int id);
+        Task<IQueryable<ActionLog>> GetItemId(string entityName, int id);
     }
 }

@@ -13,6 +13,9 @@ using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
 using EHospital.AuditTrail.Data;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using EHospital.AuditTrail.BusinessLogic.Contracts;
+using EHospital.AuditTrail.BusinessLogic.Services;
 
 namespace EHospital.AuditTrail.WebAPI
 {
@@ -38,9 +41,13 @@ namespace EHospital.AuditTrail.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Configure DbContext
             string connection = this.Configuration.GetConnectionString(CONNECTION_STRING_NAME);
-            // TODO: Set DbContext dependency injection
-            services.AddDbContext<AuditTrailContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<IActionLogDataProvider, AuditTrailContext>(options => options.UseSqlServer(connection));
+            // Configure AutoMapper
+            Mapper.Initialize(cfg => cfg.AddProfile<AuditTrailMapperProfile>());
+            // Configure service
+            services.AddScoped<IActionLogService, ActionLogService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             ///* Swagger Setting
             Info info = new Info
