@@ -38,7 +38,7 @@ namespace EHospital.AuditTrail.WebAPI.Views
         public int ItemId { get; set; }
 
         /// <summary>Gets or sets the state of the item.</summary>
-        public string ItemState { get; set; }
+        public object ItemState { get; set; }
 
         /// <summary>Gets or sets the description.</summary>
         [Required]

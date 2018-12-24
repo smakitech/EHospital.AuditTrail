@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using EHospital.AuditTrail.Model;
 using EHospital.AuditTrail.WebAPI.Views;
+using Newtonsoft.Json;
 
 namespace EHospital.AuditTrail.WebAPI
 {
@@ -24,7 +25,7 @@ namespace EHospital.AuditTrail.WebAPI
                 ActionType = arg.ActionType,
                 Description = arg.Description,
                 ItemId = arg.ItemId,
-                ItemState = arg.ItemState,
+                ItemState = JsonConvert.SerializeObject(arg.ItemState),
                 Module = arg.Module,
                 UserId = arg.UserId
             });

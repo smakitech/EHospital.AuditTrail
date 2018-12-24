@@ -45,15 +45,6 @@ namespace EHospital.AuditTrail.BusinessLogic.Services
             // Search independent from register
             var result = await Task.Run(() => this.provider.ActionsLog
                 .Where(a => a.ActionItem.ToLower() == name.ToLower() && a.ItemId == id));
-            foreach (var entity in result)
-            {
-                if (entity.ItemState != null)
-                {
-                    XmlDocument document = new XmlDocument();
-                    document.LoadXml(entity.ItemState);
-                    entity.ItemState = JsonConvert.SerializeObject(document);
-                }
-            }
 
             return result;
         }
