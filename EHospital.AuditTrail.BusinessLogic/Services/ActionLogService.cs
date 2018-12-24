@@ -37,13 +37,14 @@ namespace EHospital.AuditTrail.BusinessLogic.Services
         /// by name and identifier of ActionItem
         /// in asynchronous mode.
         /// </summary>
-        /// <param name="entityName">The entity name</param>
-        /// <param name="id">The item identifier.</param>
-        /// <returns>Set of records by specified item id.</returns>
-        public async Task<IQueryable<ActionLog>> GetItemId(string entityName, int id)
+        /// <param name="name">The action item name.</param>
+        /// <param name="id">The action item identifier.</param>
+        /// <returns>Set of records by specified action item name and id.</returns>
+        public async Task<IQueryable<ActionLog>> GetActionItemRecordsAsync(string name, int id)
         {
+            // Search independent from register
             var result = await Task.Run(() => this.provider.ActionsLog
-                .Where(a => a.ActionItem == entityName && a.ItemId == id));
+                .Where(a => a.ActionItem.ToLower() == name.ToLower() && a.ItemId == id));
             foreach (var entity in result)
             {
                 if (entity.ItemState != null)
@@ -58,13 +59,17 @@ namespace EHospital.AuditTrail.BusinessLogic.Services
         }
 
         /// <summary>
-        /// Gets the records from database table ActionsLog
-        /// by identifier of ActionItem
+        /// Inserts the record to database table ActionsLog.
         /// in asynchronous mode.
         /// </summary>
-        /// <param name="id">The item identifier.</param>
-        /// <returns>Set of records by specified item id.</returns>
-        public async Task<ActionLog> InsertRecord(ActionLog item)
+        /// <param name="item">
+        /// The item contains properties, which describe the action occurred.
+        /// </param>
+        /// <returns>Record has been added to database.</returns>
+        /// <exception cref="FormatException">
+        /// Invalid JSON content can't be converted to XML.
+        /// </exception>
+        public async Task<ActionLog> InsertRecordAsync(ActionLog item)
         {
             // Get state of action item in JSON format.
             // Check JSON valid or not.

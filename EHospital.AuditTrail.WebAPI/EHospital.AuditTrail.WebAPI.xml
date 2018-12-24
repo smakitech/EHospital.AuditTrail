@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EHospital.AuditTrail.WebAPI</name>
+    </assembly>
+    <members>
+        <member name="T:EHospital.AuditTrail.WebAPI.AuditTrailMapperProfile">
+            <summary>
+            Represents auto mapper profile for this micro-service
+            which embed mapping configuration.
+            </summary>
+            <seealso cref="T:AutoMapper.Profile" />
+        </member>
+        <member name="M:EHospital.AuditTrail.WebAPI.AuditTrailMapperProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EHospital.AuditTrail.WebAPI.AuditTrailMapperProfile"/> class.
+            </summary>
+        </member>
+        <member name="T:EHospital.AuditTrail.WebAPI.Controllers.ActionLogController">
+            <summary>
+            Contains required REST request for logging actions on database object.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:EHospital.AuditTrail.WebAPI.Controllers.ActionLogController.DEFAULT_ROOT">
+            <summary>
+            The default root.
+            </summary>
+        </member>
+        <member name="F:EHospital.AuditTrail.WebAPI.Controllers.ActionLogController.service">
+            <summary>
+            The service interface link.
+            </summary>
+        </member>
+        <member name="M:EHospital.AuditTrail.WebAPI.Controllers.ActionLogController.#ctor(EHospital.AuditTrail.BusinessLogic.Contracts.IActionLogService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EHospital.AuditTrail.WebAPI.Controllers.ActionLogController"/> class.
+            </summary>
+            <param name="service">The service.</param>
+        </member>
+        <member name="M:EHospital.AuditTrail.WebAPI.Controllers.ActionLogController.LogAction(EHospital.AuditTrail.WebAPI.Views.ActionLogRequest)">
+            <summary>
+            Handles request [POST] : "api/audit-trail/
+            Sends action log record to database
+            in asynchronous mode.
+            </summary>
+            <param name="item"><see cref="T:Microsoft.AspNetCore.Mvc.FromBodyAttribute"/>The item.</param>
+            <returns>
+            Returns one of two action results.
+            [Created] with created record and [Status Code] 201.
+            [BadReques] with message and [Status Code] 400.
+            </returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:EHospital.AuditTrail.WebAPI.Controllers.ActionLogController.GetConcreteItemActions(System.String,System.Int32)" -->
+        <member name="F:EHospital.AuditTrail.WebAPI.Startup.CONNECTION_STRING_NAME">
+            <summary>
+            The connection string name defined in application settings.
+            </summary>
+        </member>
+        <member name="F:EHospital.AuditTrail.WebAPI.Startup.VERSION">
+            * Swagger setting
+        </member>
+        <member name="T:EHospital.AuditTrail.WebAPI.Views.ActionLogRequest">
+            <summary>
+            Represents simplified model of <see cref="T:EHospital.AuditTrail.Model.ActionLog"/>
+            for POST request.
+            </summary>
+        </member>
+        <member name="P:EHospital.AuditTrail.WebAPI.Views.ActionLogRequest.UserId">
+            <summary>Gets or sets the user identifier.</summary>
+        </member>
+        <member name="P:EHospital.AuditTrail.WebAPI.Views.ActionLogRequest.Module">
+            <summary>
+            Gets or sets the name of module in which action has occurred.
+            </summary>
+        </member>
+        <member name="P:EHospital.AuditTrail.WebAPI.Views.ActionLogRequest.ActionType">
+            <summary>Gets or sets the type of the action (operation).</summary>
+        </member>
+        <member name="P:EHospital.AuditTrail.WebAPI.Views.ActionLogRequest.ActionItem">
+            <summary>
+            Gets or sets the name of entity has been affected.
+            </summary>
+        </member>
+        <member name="P:EHospital.AuditTrail.WebAPI.Views.ActionLogRequest.ItemId">
+            <summary>
+            Gets or sets the identifier of the record affected in the entity.</summary>
+        </member>
+        <member name="P:EHospital.AuditTrail.WebAPI.Views.ActionLogRequest.ItemState">
+            <summary>Gets or sets the state of the item.</summary>
+        </member>
+        <member name="P:EHospital.AuditTrail.WebAPI.Views.ActionLogRequest.Description">
+            <summary>Gets or sets the description.</summary>
+        </member>
+    </members>
+</doc>

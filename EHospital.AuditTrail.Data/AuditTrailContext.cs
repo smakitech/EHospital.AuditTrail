@@ -1,9 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using EHospital.AuditTrail.Model;
 using System.Threading.Tasks;
-using System;
-using System.Linq;
-using System.Linq.Expressions;
 
 namespace EHospital.AuditTrail.Data
 {
