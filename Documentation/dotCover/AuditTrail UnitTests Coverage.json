@@ -1,0 +1,82 @@
+﻿{
+ "DotCoverVersion": "2018.2.3",
+ "Kind": "Root",
+ "CoveredStatements": 26,
+ "TotalStatements": 26,
+ "CoveragePercent": 100,
+ "Children": [
+  {
+   "Kind": "Project",
+   "Name": "EHospital.AuditTrail.BusinessLogic",
+   "CoveredStatements": 26,
+   "TotalStatements": 26,
+   "CoveragePercent": 100,
+   "Children": [
+    {
+     "Kind": "Namespace",
+     "Name": "EHospital.AuditTrail.BusinessLogic.Services",
+     "CoveredStatements": 26,
+     "TotalStatements": 26,
+     "CoveragePercent": 100,
+     "Children": [
+      {
+       "Kind": "Type",
+       "Name": "ActionLogService",
+       "CoveredStatements": 26,
+       "TotalStatements": 26,
+       "CoveragePercent": 100,
+       "Children": [
+        {
+         "Kind": "Constructor",
+         "Name": "ActionLogService(IActionLogDataProvider)",
+         "CoveredStatements": 4,
+         "TotalStatements": 4,
+         "CoveragePercent": 100
+        },
+        {
+         "Kind": "Method",
+         "Name": "GetActionItemRecordsAsync(string,int):Task<IQueryable<ActionLog>>",
+         "CoveredStatements": 5,
+         "TotalStatements": 5,
+         "CoveragePercent": 100,
+         "Children": [
+          {
+           "Kind": "AnonymousMethod",
+           "Name": "():IQueryable<ActionLog>",
+           "CoveredStatements": 1,
+           "TotalStatements": 1,
+           "CoveragePercent": 100
+          },
+          {
+           "Kind": "InternalCompiledMethod",
+           "Name": "MoveNext():void",
+           "CoveredStatements": 4,
+           "TotalStatements": 4,
+           "CoveragePercent": 100
+          }
+         ]
+        },
+        {
+         "Kind": "Method",
+         "Name": "InsertRecordAsync(ActionLog):Task<ActionLog>",
+         "CoveredStatements": 17,
+         "TotalStatements": 17,
+         "CoveragePercent": 100,
+         "Children": [
+          {
+           "Kind": "InternalCompiledMethod",
+           "Name": "MoveNext():void",
+           "CoveredStatements": 17,
+           "TotalStatements": 17,
+           "CoveragePercent": 100
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

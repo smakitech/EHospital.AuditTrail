@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root CoveredStatements="26" TotalStatements="26" CoveragePercent="100" ReportType="Xml" DotCoverVersion="2018.2.3">
+  <Project Name="EHospital.AuditTrail.BusinessLogic" CoveredStatements="26" TotalStatements="26" CoveragePercent="100">
+    <Namespace Name="EHospital.AuditTrail.BusinessLogic.Services" CoveredStatements="26" TotalStatements="26" CoveragePercent="100">
+      <Type Name="ActionLogService" CoveredStatements="26" TotalStatements="26" CoveragePercent="100">
+        <Constructor Name="ActionLogService(IActionLogDataProvider)" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+        <Method Name="GetActionItemRecordsAsync(string,int):Task&lt;IQueryable&lt;ActionLog&gt;&gt;" CoveredStatements="5" TotalStatements="5" CoveragePercent="100">
+          <AnonymousMethod Name="():IQueryable&lt;ActionLog&gt;" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+        </Method>
+        <Method Name="InsertRecordAsync(ActionLog):Task&lt;ActionLog&gt;" CoveredStatements="17" TotalStatements="17" CoveragePercent="100">
+          <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="17" TotalStatements="17" CoveragePercent="100" />
+        </Method>
+      </Type>
+    </Namespace>
+  </Project>
+</Root>
