@@ -17,4 +17,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EHospital.AuditTrail.BusinessLogic\EHospital.AuditTrail.BusinessLogic.csproj" />
+    <ProjectReference Include="..\EHospital.AuditTrail.Data\EHospital.AuditTrail.Data.csproj" />
+    <ProjectReference Include="..\EHospital.AuditTrail.Model\EHospital.AuditTrail.Model.csproj" />
+  </ItemGroup>
+
 </Project>

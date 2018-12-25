@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Xml;
 using System.Xml.Linq;
 using EHospital.AuditTrail.BusinessLogic.Contracts;
 using EHospital.AuditTrail.Data;
