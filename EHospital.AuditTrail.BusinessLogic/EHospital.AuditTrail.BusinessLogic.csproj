@@ -10,11 +10,16 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="System.Data.Entity.Repository" Version="2.0.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\" />
     <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EHospital.AuditTrail.Data\EHospital.AuditTrail.Data.csproj" />
+    <ProjectReference Include="..\EHospital.AuditTrail.Model\EHospital.AuditTrail.Model.csproj" />
   </ItemGroup>
 
 </Project>

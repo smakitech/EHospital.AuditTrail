@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>e:\enviroment backup\ehospital.audittrail\ehospital.audittrail.businesslogic\services\actionlogservice.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+using EHospital.AuditTrail.BusinessLogic.Contracts;
+using EHospital.AuditTrail.Data;
+using EHospital.AuditTrail.Model;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+namespace EHospital.AuditTrail.BusinessLogic.Services
+{
+    /// &lt;summary&gt;
+    /// Service which tracks action on database entities
+    /// and saves information about occurred actions to database.
+    /// &lt;/summary&gt;
+    public class ActionLogService : IActionLogService
+    {
+        /// &lt;summary&gt;
+        /// Provides access to required database objects
+        /// for this service needs.
+        /// &lt;/summary&gt;
+        private readonly IActionLogDataProvider provider;
+
+        /// &lt;summary&gt;
+        /// Initializes a new instance of the &lt;see cref=&quot;ActionLogService&quot;/&gt; class.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;provider&quot;&gt;Data provider.&lt;/param&gt;
+        public ActionLogService(IActionLogDataProvider provider)
+        {
+            this.provider = provider;
+        }
+
+        /// &lt;summary&gt;
+        /// Gets the records from database table ActionsLog
+        /// by name and identifier of ActionItem
+        /// in asynchronous mode.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;name&quot;&gt;The action item name.&lt;/param&gt;
+        /// &lt;param name=&quot;id&quot;&gt;The action item identifier.&lt;/param&gt;
+        /// &lt;returns&gt;Set of records by specified action item name and id.&lt;/returns&gt;
+        public async Task&lt;IQueryable&lt;ActionLog&gt;&gt; GetActionItemRecordsAsync(string name, int id)
+        {
+            // Search independent from register
+            var result = await Task.Run(() =&gt; this.provider.ActionsLog
+                .Where(a =&gt; a.ActionItem.ToLower() == name.ToLower() &amp;&amp; a.ItemId == id));
+
+            return result;
+        }
+
+        /// &lt;summary&gt;
+        /// Inserts the record to database table ActionsLog.
+        /// in asynchronous mode.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;item&quot;&gt;
+        /// The item contains properties, which describe the action occurred.
+        /// &lt;/param&gt;
+        /// &lt;returns&gt;Record has been added to database.&lt;/returns&gt;
+        /// &lt;exception cref=&quot;FormatException&quot;&gt;
+        /// Invalid JSON content can&#39;t be converted to XML.
+        /// &lt;/exception&gt;
+        public async Task&lt;ActionLog&gt; InsertRecordAsync(ActionLog item)
+        {
+            // Get state of action item in JSON format.
+            // Check JSON valid or not.
+            // Convert JSON string to XML string.
+            if (item.ItemState != null)
+            {
+                try
+                {
+                    JObject.Parse(item.ItemState);
+                }
+                catch (JsonReaderException ex)
+                {
+                    string message = &quot;Invalid JSON content can&#39;t be converted to XML.&quot;;
+                    throw new FormatException(message, ex);
+                }
+
+                XDocument document = JsonConvert
+                    .DeserializeXNode(item.ItemState, item.ActionItem);
+                item.ItemState = document.ToString();
+            }
+
+            this.provider.ActionsLog.Add(item);
+            await this.provider.SaveAsync();
+            return item;
+        }
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[29,9,29,65,1],[30,9,30,10,1],[31,13,31,38,1],[32,9,32,10,1],[43,9,43,10,1],[45,13,46,90,1],[45,47,46,88,1],[48,13,48,27,1],[49,9,49,10,1],[63,9,63,10,1],[67,13,67,40,1],[68,13,68,14,1],[70,17,70,18,1],[71,21,71,51,1],[72,17,72,18,1],[73,17,73,47,1],[74,17,74,18,1],[75,21,75,88,1],[76,21,76,60,1],[79,17,80,72,1],[81,17,81,54,1],[82,13,82,14,1],[84,13,84,48,1],[85,13,85,45,1],[86,13,86,25,1],[87,9,87,10,1]]);
+    </script>
+  </body>
+</html>

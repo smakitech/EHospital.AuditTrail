@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "c9880d48-2dd7-41d0-961e-85796dcdf064",
+		"name": "EHospital.AuditTrail",
+		"description": "Collection contains AuditTrail REST requests.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://localhost:44364/api/audit-trail/filter?name=drugs&id=3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:44364/api/audit-trail/filter?name=drugs&id=3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44364",
+					"path": [
+						"api",
+						"audit-trail",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "drugs"
+						},
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				},
+				"description": "Retrieves action log records set associated with action item\r\nspecified by name and identifier. Works in asynchronous mode.\r\nReturns one of two action results.\r\n[Ok] with set of records and [Status Code] 200.\r\n[NoContent] with [Status Code] 204."
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44364/api/audit-trail",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": 5,\r\n  \"module\": \"MedicationsAPI\",\r\n  \"actionType\": 2,\r\n  \"actionItem\": \"Drugs\",\r\n  \"itemId\": 3,\r\n  \"itemState\": \r\n  {\r\n    \"patientId\": 4,\r\n    \"userId\": 5,\r\n    \"drugId\": 2,\r\n    \"duration\": 14,\r\n    \"notes\": \"Doctor notes.\",\r\n    \"isFinished\": false,\r\n    \"isDeleted\": false,\r\n    \"drug\": null,\r\n    \"patient\": null,\r\n  },\r\n  \"description\": \"Drug has been updated.\"\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44364/api/audit-trail",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44364",
+					"path": [
+						"api",
+						"audit-trail"
+					]
+				},
+				"description": "Sends action log record to database\r\nin asynchronous mode.\r\nReturns one of two action results.\r\n[Created] with created record and [Status Code] 201.\r\n[BadReques] with message and [Status Code] 400."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f45929d9-bb6e-4551-8ab1-d35fa8667292",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "f827c1d7-3e5e-4fbc-aab5-37fbee28db6e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
