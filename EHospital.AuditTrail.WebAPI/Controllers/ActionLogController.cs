@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using EHospital.AuditTrail.BusinessLogic.Contracts;
 using EHospital.AuditTrail.Model;
-using EHospital.AuditTrail.WebAPI.Views;
+using EHospital.Shared.AuditTrail.Models;
 
 namespace EHospital.AuditTrail.WebAPI.Controllers
 {
@@ -47,7 +47,7 @@ namespace EHospital.AuditTrail.WebAPI.Controllers
         /// [BadReques] with message and [Status Code] 400.
         /// </returns>
         [HttpPost(DEFAULT_ROOT)]
-        public async Task<IActionResult> LogAction([FromBody] ActionLogRequest item)
+        public async Task<IActionResult> LogAction([FromBody] AuditTrailModel item)
         {
             try
             {
@@ -82,10 +82,8 @@ namespace EHospital.AuditTrail.WebAPI.Controllers
             {
                 return this.Ok(result);
             }
-            else
-            {
-                return this.NoContent();
-            }
+
+            return this.NoContent();
         }
     }
 }

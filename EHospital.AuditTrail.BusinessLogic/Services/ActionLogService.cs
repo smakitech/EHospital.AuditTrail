@@ -20,7 +20,7 @@ namespace EHospital.AuditTrail.BusinessLogic.Services
         /// Provides access to required database objects
         /// for this service needs.
         /// </summary>
-        private readonly IActionLogDataProvider provider;
+        private readonly IActionLogDataProvider _provider;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ActionLogService"/> class.
@@ -28,7 +28,7 @@ namespace EHospital.AuditTrail.BusinessLogic.Services
         /// <param name="provider">Data provider.</param>
         public ActionLogService(IActionLogDataProvider provider)
         {
-            this.provider = provider;
+            this._provider = provider;
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace EHospital.AuditTrail.BusinessLogic.Services
         public async Task<IQueryable<ActionLog>> GetActionItemRecordsAsync(string name, int id)
         {
             // Search independent from register
-            var result = await Task.Run(() => this.provider.ActionsLog
+            var result = await Task.Run(() => this._provider.ActionsLog
                 .Where(a => a.ActionItem.ToLower() == name.ToLower() && a.ItemId == id));
 
             return result;
@@ -81,8 +81,8 @@ namespace EHospital.AuditTrail.BusinessLogic.Services
                 item.ItemState = document.ToString();
             }
 
-            this.provider.ActionsLog.Add(item);
-            await this.provider.SaveAsync();
+            this._provider.ActionsLog.Add(item);
+            await this._provider.SaveAsync();
             return item;
         }
     }

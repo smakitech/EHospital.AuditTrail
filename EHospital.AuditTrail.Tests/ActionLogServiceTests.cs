@@ -9,6 +9,7 @@ using Moq;
 using EHospital.AuditTrail.BusinessLogic.Services;
 using EHospital.AuditTrail.Data;
 using EHospital.AuditTrail.Model;
+using EHospital.Shared.AuditTrail.Models;
 
 namespace EHospital.AuditTrail.Tests
 {

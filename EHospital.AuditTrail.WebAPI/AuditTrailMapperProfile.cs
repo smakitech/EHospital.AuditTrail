@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using EHospital.AuditTrail.Model;
-using EHospital.AuditTrail.WebAPI.Views;
+using EHospital.Shared.AuditTrail.Models;
 using Newtonsoft.Json;
 
 namespace EHospital.AuditTrail.WebAPI
@@ -18,7 +18,7 @@ namespace EHospital.AuditTrail.WebAPI
         public AuditTrailMapperProfile()
         {
             // ActionLog map for POST request
-            this.CreateMap<ActionLogRequest, ActionLog>()
+            this.CreateMap<AuditTrailModel, ActionLog>()
                 .ConvertUsing(arg => new ActionLog
             {
                 ActionItem = arg.ActionItem,

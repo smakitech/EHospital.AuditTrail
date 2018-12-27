@@ -32,7 +32,7 @@ namespace EHospital.AuditTrail.Model
 
         /// <summary>Gets or sets the type of the action (operation).</summary>
         [Required]
-        public ActionMode ActionType { get; set; }
+        public Shared.AuditTrail.Models.ActionMode ActionType { get; set; }
 
         /// <summary>
         /// Gets or sets the name of entity has been affected.
